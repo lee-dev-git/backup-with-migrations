@@ -28,10 +28,13 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch(Dispatchers.IO) {
             // testData.forEach { database.journalDao().add(it) }
             database.journalDao().all().forEach { Log.d("backup-migration", "$it") }
+
+            database.songDao().add(Song(name = "노래 제목"))
+            database.songDao().all().first().let { Log.d("backup-migration", "$it") }
         }
     }
 
-    private fun backup() { val dbFile = getDatabasePath(AppDatabase.databaseName) }
+    private fun backup() { getDatabasePath(AppDatabase.databaseName) }
 
     private fun restore() {}
 }

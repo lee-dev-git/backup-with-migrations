@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "journal")
 data class Journal(
-    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    @PrimaryKey(autoGenerate = true) val id: Long = 0L,
     val emotion: Int,
     val date: Long,
     @ColumnInfo(name = "image_uri") val imageUri: String?,
